@@ -111,6 +111,19 @@ class Student_model extends CI_Model{
            }
          }
 		 
+		   public function getdue($id)
+         {
+           $this->db->select('due_amount.amount,due_type.type');
+           $this->db->from('due_amount');
+           $this->db->join('stdreg', 'due_amount.student_id = stdreg.std_id', 'inner'); 
+           $this->db->join('due_type', 'due_type.id = due_amount.due_id', 'inner'); 
+           $this->db->where('stdreg.std_id', $id);
+
+           $query = $this->db->get();
+           return $query->result();
+		   
+         }
+		 
 		 
 
 

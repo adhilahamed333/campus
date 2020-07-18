@@ -35,10 +35,17 @@
 							<h2>Semester Credits</h2><br><br>
 
 							<div class="col-md-6 col-xs-6 w3l-left-mk">
-								<ul>
+							<?php if(count($posts)):?>
+								<ul><?php foreach($credits as $cr): ?>
+								 <?php endforeach; ?>
+									<?php endif;?>
 									<?php if ($credits->first_sem > 0): ?>
+								
+ 
 										<li class="text">First Semester :  </li>
 										<li class="agileits-main"><input type="text" value="<?php echo $credits->first_sem; ?>" readonly></li>
+									
+
 									<?php endif; ?>
 									<?php if ($credits->third_sem > 0): ?>
 										<li class="text">Third Semester  :  </li>
@@ -75,7 +82,18 @@
 								</ul>
 							</div>
 
-
+							<div class="col-md-6 col-xs-6 w3l-right-mk">
+							<h1 class="text-danger">Due Details</h1>							
+ <?php
+      if (count($posts_due)):
+        foreach ($posts_due as $d):
+       ?>
+		<p><h5><?php echo $d->amount; ?> rupee pending in 
+		<?php echo $d->type; ?></h5></p>
+		<?php endforeach;
+      endif;
+     ?>
+							</div>
 							<div class="clearfix"></div>
 						<?php echo form_close(); ?>
 					<?php endforeach;?>

@@ -26,8 +26,13 @@
       <input type="hidden" name="staff_id" value="<?php echo $this->session->userdata('user_id');?>">
        <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="">Date for Display Semester Registration Button</label>
-          <input type="date" class="form-control" name="dateofjoining" placeholder="Date" required >
+          <label for="">Start Date for Display Semester Registration Button </label>
+          <input type="date" class="form-control" name="start_date" placeholder="Date" required >
+        </div>
+		
+		  <div class="form-group col-md-6">
+          <label for="">End Date for Display Semester Registration Button</label>
+          <input type="date" class="form-control" name="end_date" placeholder="Date" required >
         </div>
           </div>
         <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->

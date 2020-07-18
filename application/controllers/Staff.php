@@ -93,9 +93,11 @@ class Staff extends CI_Controller {
 		
 		public function insert_date()
 		{				
-				$date = $this->input->post('dateofjoining'); 
+				$start_date = $this->input->post('start_date'); 
+				$end_date = $this->input->post('end_date'); 
+				$staff_id = $this->input->post('staff_id'); 
 				$this->load->model('staff_model');
-				$posts =$this->staff_model->insert_date($date);
+				$posts =$this->staff_model->insert_date($start_date,$end_date,$staff_id);
 			    return redirect('staff/add_date');
 
 		}

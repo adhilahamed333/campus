@@ -27,7 +27,20 @@ class Student extends CI_Controller
       $credits = $this->staff_model->getstudentcredits($id);
       $stddet = $this->staff_model->getSinglestudent($id);
       $sem_date = $this->staff_model->getSemdate();
-      $this->load->view('student/index', array('credits' => $credits, 'stddet' => $stddet, 'sem_date' => $sem_date));
+      $due = $this->staff_model->getMyDues($id);
+      $this->load->view('student/index', array('credits' => $credits, 'due' => $due, 'stddet' => $stddet, 'sem_date' => $sem_date));
+    } else {
+      redirect('Front', 'refresh');
+    }
+  }
+
+  public function mydues()
+  {
+    if ($this->session->userdata('logged_in')) {
+      $id = $this->session->userdata('user_id');
+      $this->load->model('staff_model');
+      $content['dues'] = $this->staff_model->getMyDues($id);
+      $this->load->view('student/mydues', $content);
     } else {
       redirect('Front', 'refresh');
     }
@@ -77,7 +90,11 @@ class Student extends CI_Controller
     $credits = $this->staff_model->getstudentcredits($user_id);
     $this->load->model('student_model');
     $posts = $this->student_model->getstd($user_id);
-    $this->load->view('student/acdprofile', array('posts' => $posts, 'credits' => $credits));
+
+    $this->load->model('student_model');
+    $posts_due = $this->student_model->getdue($user_id);
+
+    $this->load->view('student/acdprofile', array('posts' => $posts, 'credits' => $credits, 'posts_due' => $posts_due));
   }
 
   public function personalprofile()
@@ -134,11 +151,10 @@ class Student extends CI_Controller
     $std = $this->student_model->getstd($user_id);
     $perdetails = $this->student_model->getstdperbyid($user_id);
     $regdetails = $this->student_model->getregdetails($user_id);
-    
     $this->load->view('student/semregistration', array('std' => $std, 'perdetails' => $perdetails, 'regdetails' => $regdetails));
   }
 
-  public function semregistration2($semester)
+  public function semregistration2()
   {
     $user_id = $this->session->userdata('user_id');
     $this->load->model('student_model');
@@ -146,7 +162,7 @@ class Student extends CI_Controller
     $perdetails = $this->student_model->getstdperbyid($user_id);
     $advisor = $this->student_model->advisor();
     $course = $this->admin_model->getcourse();
-    $this->load->view('student/semregistration2', array('std' => $std, 'perdetails' => $perdetails,'semester'=>$semester, 'course' => $course, 'advisor' => $advisor));
+    $this->load->view('student/semregistration2', array('std' => $std, 'perdetails' => $perdetails, 'course' => $course, 'advisor' => $advisor));
   }
 
   public function courseregistration()

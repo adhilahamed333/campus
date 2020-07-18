@@ -10,7 +10,9 @@ class Department extends CI_Controller
 		$this->load->model('department_model');
 		$this->security_model->check_log_in_faculty();
 	}
-
+	/**
+	 * @author Unnikrishnan
+	 **/
 
 
 
@@ -38,10 +40,47 @@ class Department extends CI_Controller
 
 	public function viewstudent()
 	{
+
 		$this->load->model('department_model');
 		$posts = $this->department_model->getstudent();
-		$this->load->view('department/viewstd', array('posts' => $posts));
+		$posts_branch = $this->department_model->getbranch();
+		$posts_semester = $this->department_model->getsemester();
+		$posts_due = $this->department_model->getdue();
+		$this->load->view('department/viewstd', array('posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
 	}
+
+	public function viewstudents()
+	{
+
+		$branch = $this->input->post('branch');
+		$semester = $this->input->post('semester');
+		$this->load->model('department_model');
+		$posts = $this->department_model->getstudents($branch, $semester);
+		
+		$posts_branch = $this->department_model->getbranch();
+		$posts_semester = $this->department_model->getsemester();
+		$posts_due = $this->department_model->getdue();
+		
+		$this->load->view('department/viewstd',array('posts' =>$posts,'posts_branch' =>$posts_branch,'posts_semester' =>$posts_semester,'posts_due' =>$posts_due));
+	}
+	public function save_due()
+	{
+
+		$std_id = $this->input->post('std_id');
+		$amount = $this->input->post('amount');
+		$due = $this->input->post('due_type');
+		$posts_due = $this->department_model->save_due($std_id, $amount, $due);
+
+		$branch = $this->input->post('branch');
+		$semester = $this->input->post('semester');
+		$this->load->model('department_model');
+		$posts = $this->department_model->getstudent();
+		$posts_branch = $this->department_model->getbranch();
+		$posts_semester = $this->department_model->getsemester();
+		$posts_due = $this->department_model->getdue();
+		$this->load->view('department/viewstd', array('posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
+	}
+
 	//
 	// 		public function deletestudent($id)
 	// 				{
