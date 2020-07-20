@@ -39,7 +39,7 @@ error_reporting(0); ?>
 						View Dues
 					</a>
 				<?php } ?>
-				<?php if ($semester == "Forth Semester") : ?>
+				<?php if ($semester == "S4") : ?>
 					<?php if ($creditscheck1 >= 26) : ?>
 						<!--<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">-->
 						<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
@@ -54,7 +54,7 @@ error_reporting(0); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 
-				<?php if ($semester == "Sixth Semester") : ?>
+				<?php if ($semester == "S6") : ?>
 					<?php if ($creditscheck2 >= 52) : ?>
 
 						<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
@@ -70,7 +70,7 @@ error_reporting(0); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 
-				<?php if ($semester == "First Semester" || $semester == "Second Semester" || $semester == "Third Semester" || $semester == "Fifth Semester" || $semester == "Seventh Semester") : ?>
+				<?php if ($semester == "S1" || $semester == "S2" || $semester == "S3" || $semester == "S5" || $semester == "S7") : ?>
 					<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
 						Semester Registration
 						<!-- <?php echo $creditscheck1 . " " . $semester; ?> -->
@@ -78,7 +78,7 @@ error_reporting(0); ?>
 					(You Are Only Eligible when you have the Required Credits)
 				<?php endif; ?>
 
-				<?php if ($semester == "Eighth Semester") : ?>
+				<?php if ($semester == "S8") : ?>
 					<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
 						Good Luck
 						<!-- <?php echo $creditscheck1 . " " . $semester; ?> -->

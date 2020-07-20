@@ -150,8 +150,9 @@ class Student extends CI_Controller
     $this->load->model('student_model');
     $std = $this->student_model->getstd($user_id);
     $perdetails = $this->student_model->getstdperbyid($user_id);
+    
     $regdetails = $this->student_model->getregdetails($user_id);
-    $this->load->view('student/semregistration', array('std' => $std, 'perdetails' => $perdetails, 'regdetails' => $regdetails));
+     $this->load->view('student/semregistration', array('std' => $std, 'perdetails' => $perdetails, 'regdetails' => $regdetails));
   }
 
   public function semregistration2()
@@ -160,6 +161,7 @@ class Student extends CI_Controller
     $this->load->model('student_model');
     $std = $this->student_model->getstd($user_id);
     $perdetails = $this->student_model->getstdperbyid($user_id);
+
     $advisor = $this->student_model->advisor();
     $course = $this->admin_model->getcourse();
     $this->load->view('student/semregistration2', array('std' => $std, 'perdetails' => $perdetails, 'course' => $course, 'advisor' => $advisor));

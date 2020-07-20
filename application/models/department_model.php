@@ -102,10 +102,36 @@ class Department_model extends CI_Model
     }
   }
 
+  public function getmydues($id, $due)
+  {
+    $this->db->from('due_amount');
+    $this->db->where('student_id', $id);
+    $this->db->where('due_id', $due);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->row();
+    }
+  }
 
   public function save_due($std_id, $amount, $due)
   {
-    $query = "INSERT INTO due_amount (due_id,student_id,amount) values($due,$std_id,$amount)";
-    return $this->db->query($query);
+    $data = array(
+      'due_id' => $due,
+      'student_id' => $std_id,
+      'amount' => $amount
+    );
+    $this->db->where('student_id', $std_id);
+    $this->db->where('due_id', $due);
+    $q = $this->db->get('due_amount');
+
+    if ($q->num_rows() > 0) {
+      $this->db->where('student_id', $std_id);
+      $this->db->where('due_id', $due);
+      return $this->db->update('due_amount', $data);
+    } else {
+      $this->db->where('student_id', $std_id);
+      $this->db->where('due_id', $due);
+      return $this->db->insert('due_amount', $data);
+    }
   }
 }

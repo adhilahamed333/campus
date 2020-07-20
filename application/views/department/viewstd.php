@@ -1,5 +1,7 @@
 <?php $this->load->view('department/header');
-error_reporting(0); ?>
+error_reporting(0);
+//var_dump($dues[2]->amount);
+?>
 <div class="container-fluid">
 
   <div class="table-responsive">
@@ -103,6 +105,8 @@ error_reporting(0); ?>
         $row_count = 1;
         if (count($posts)) :
           foreach ($posts as $post) :
+
+
         ?>
             <form method="post" action="save_due">
 
@@ -120,18 +124,13 @@ error_reporting(0); ?>
                 </td>
                 <td>
                   <select name="due_type">
-                    <?php
-                    if (count($posts_due)) :
-                      foreach ($posts_due as $d) :
-                    ?>
-                        <option value="<?php echo $d->id; ?>"><?php echo $d->type; ?></option>
-                    <?php endforeach;
-                    endif;
-                    ?>
+
+                    <option value="<?php echo $_SESSION['dept_id']; ?>"><?php echo $_SESSION['department']; ?></option>
+
                   </select>
                 </td>
                 <td>
-                  <input type="text" name="amount">
+                  <input type="text" name="amount" value="<?php echo $dues[$post->std_id]->amount; ?>">
 
                 </td>
                 <td>

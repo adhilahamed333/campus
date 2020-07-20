@@ -43,10 +43,13 @@ class Department extends CI_Controller
 
 		$this->load->model('department_model');
 		$posts = $this->department_model->getstudent();
+		foreach ($posts as $p) {
+			$mydues[$p->std_id] = $this->department_model->getmydues($p->std_id, $_SESSION['dept_id']);
+		}
 		$posts_branch = $this->department_model->getbranch();
 		$posts_semester = $this->department_model->getsemester();
 		$posts_due = $this->department_model->getdue();
-		$this->load->view('department/viewstd', array('posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
+		$this->load->view('department/viewstd', array('dues' => $mydues, 'posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
 	}
 
 	public function viewstudents()
@@ -56,12 +59,14 @@ class Department extends CI_Controller
 		$semester = $this->input->post('semester');
 		$this->load->model('department_model');
 		$posts = $this->department_model->getstudents($branch, $semester);
-		
+		foreach ($posts as $p) {
+			$mydues[$p->std_id] = $this->department_model->getmydues($p->std_id, $_SESSION['dept_id']);
+		}
 		$posts_branch = $this->department_model->getbranch();
 		$posts_semester = $this->department_model->getsemester();
 		$posts_due = $this->department_model->getdue();
-		
-		$this->load->view('department/viewstd',array('posts' =>$posts,'posts_branch' =>$posts_branch,'posts_semester' =>$posts_semester,'posts_due' =>$posts_due));
+
+		$this->load->view('department/viewstd', array('dues' => $mydues, 'posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
 	}
 	public function save_due()
 	{
@@ -75,10 +80,13 @@ class Department extends CI_Controller
 		$semester = $this->input->post('semester');
 		$this->load->model('department_model');
 		$posts = $this->department_model->getstudent();
+		foreach ($posts as $p) {
+			$mydues[$p->std_id] = $this->department_model->getmydues($p->std_id, $_SESSION['dept_id']);
+		}
 		$posts_branch = $this->department_model->getbranch();
 		$posts_semester = $this->department_model->getsemester();
 		$posts_due = $this->department_model->getdue();
-		$this->load->view('department/viewstd', array('posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
+		$this->load->view('department/viewstd', array('dues' => $mydues, 'posts' => $posts, 'posts_branch' => $posts_branch, 'posts_semester' => $posts_semester, 'posts_due' => $posts_due));
 	}
 
 	//
