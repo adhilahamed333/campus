@@ -1,4 +1,4 @@
-<?php $this->load->view('student/header') ;?>
+<?php $this->load->view('student/header'); ?>
 
 <body>
   <!-- banner -->
@@ -203,28 +203,28 @@
                 <tbody>
                   <tr>
                     <td><?php echo $std->Course; ?></td>
-                    <?php if ($std->semester == "S1") : ?>
+                    <?php if ($stddet->semester == "S1") : ?>
                       <th>Second Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S2") : ?>
+                    <?php if ($stddet->semester == "S2") : ?>
                       <th>Third Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S3") : ?>
+                    <?php if ($stddet->semester == "S3") : ?>
                       <th>Forth Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S4") : ?>
+                    <?php if ($stddet->semester == "S4") : ?>
                       <th>Fifth Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S5") : ?>
+                    <?php if ($stddet->semester == "S5") : ?>
                       <th>Sixth Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S6") : ?>
+                    <?php if ($stddet->semester == "S6") : ?>
                       <th>Seventh Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S7") : ?>
+                    <?php if ($stddet->semester == "S7") : ?>
                       <th>Eight Semester</th>
                     <?php endif; ?>
-                    <?php if ($std->semester == "S8") : ?>
+                    <?php if ($stddet->semester == "S8") : ?>
                       <th>End</th>
                     <?php endif; ?>
                     <?php if ($status->hod_status == "1") { ?>
