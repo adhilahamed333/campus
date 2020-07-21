@@ -202,28 +202,29 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?php foreach ($std as $std) {echo $std->Course;
-                         ?></td>
+                    <td><?php foreach ($std as $std) {
+                          echo $std->Course;
+                        ?></td>
                     <?php if ($std->semester == "S1") : ?>
-                      <th>Second Semester</th>
+                      <th>First Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S2") : ?>
-                      <th>Third Semester</th>
+                      <th>Second Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S3") : ?>
-                      <th>Forth Semester</th>
+                      <th>Third Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S4") : ?>
-                      <th>Fifth Semester</th>
+                      <th>Forth Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S5") : ?>
-                      <th>Sixth Semester</th>
+                      <th>Fifth Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S6") : ?>
-                      <th>Seventh Semester</th>
+                      <th>Sixth Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S7") : ?>
-                      <th>Eight Semester</th>
+                      <th>Seventh Semester</th>
                     <?php endif; ?>
                     <?php if ($std->semester == "S8") : ?>
                       <th>End</th>
