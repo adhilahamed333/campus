@@ -202,8 +202,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?php echo $std->Course;
-                        foreach ($std as $std) { ?></td>
+                    <td><?php foreach ($std as $std) {echo $std->Course;
+                         ?></td>
                     <?php if ($std->semester == "S1") : ?>
                       <th>Second Semester</th>
                     <?php endif; ?>
