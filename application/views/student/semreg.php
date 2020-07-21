@@ -202,41 +202,43 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?php echo $std->Course; ?></td>
-                    <?php if ($stddet->semester == "S1") : ?>
+                    <td><?php echo $std->Course;
+                        foreach ($std as $std) { ?></td>
+                    <?php if ($std->semester == "S1") : ?>
                       <th>Second Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S2") : ?>
+                    <?php if ($std->semester == "S2") : ?>
                       <th>Third Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S3") : ?>
+                    <?php if ($std->semester == "S3") : ?>
                       <th>Forth Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S4") : ?>
+                    <?php if ($std->semester == "S4") : ?>
                       <th>Fifth Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S5") : ?>
+                    <?php if ($std->semester == "S5") : ?>
                       <th>Sixth Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S6") : ?>
+                    <?php if ($std->semester == "S6") : ?>
                       <th>Seventh Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S7") : ?>
+                    <?php if ($std->semester == "S7") : ?>
                       <th>Eight Semester</th>
                     <?php endif; ?>
-                    <?php if ($stddet->semester == "S8") : ?>
+                    <?php if ($std->semester == "S8") : ?>
                       <th>End</th>
                     <?php endif; ?>
                     <?php if ($status->hod_status == "1") { ?>
                       <td><a href="<?php echo base_url() . "pdf_generate/print_req/" . $status->std_id; ?>"><i class="fa fa-download" aria-hidden="true"></i></a></td>
                     <?php } else {
-                      echo " <td>Pending</td>";
-                    } ?>
+                            echo " <td>Pending</td>";
+                          } ?>
                   </tr>
                 </tbody>
               </table>
             </div>
-          <?php } ?>
+        <?php }
+                      } ?>
         </div>
       </div>
     </div>
