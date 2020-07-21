@@ -53,7 +53,7 @@
               <td style="padding:10px;"><?php echo $post->Course; ?></td>
               <td style="padding:10px;"><?php echo $post->branch; ?></td>
               <td><a href="<?php echo base_url() ?>Staff/sem_action/<?= $post->sem_reg_id ?>"> Approve</a></td>
-              <td><a href="<?php echo base_url("staff/personalprofile/") . $post->admission_no; ?>">Personal details</a><br><a href="<?php echo base_url("staff/acdprofile/") . $post->sem_reg_id; ?>">Academic details</a></td>
+              <td><a href="<?php echo base_url("staff/personalprofile/") . $post->admission_no; ?>">Personal details</a><br><a href="<?php echo base_url("staff/acdprofile/") . $post->std_id; ?>">Academic details</a></td>
 
             </tr>
 
