@@ -65,7 +65,11 @@ class Hod extends CI_Controller
 		if (isset($_REQUEST['hod_status'])) {
 			$this->load->model('hod_model');
 			$res = $this->hod_model->hod_status();
+			$std_id = $_REQUEST['std_id'];
+			$sem = $_REQUEST['sem'];
+			$this->hod_model->updatesem($std_id, $sem);
 		}
 		$this->load->view('hod/index');
 	}
 }
+/**/

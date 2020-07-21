@@ -12,6 +12,7 @@ class pdf_generate extends CI_Controller
 
     public function print_req($arequest_id)
     {
+        
         $content = $this->student_model->print_request($arequest_id);
 
         $this->pdf->loadHtml($content);

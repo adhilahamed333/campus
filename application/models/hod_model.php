@@ -102,13 +102,39 @@ class Hod_model extends CI_Model
     }
   }
 
+
+  public function updatesem($id, $semester)
+  {
+    if ($semester == 'S1') {
+      $sem = 'S2';
+    } else if ($semester == 'S2') {
+
+      $sem = 'S3';
+    } else if ($semester == 'S0') {
+
+      $sem = 'S1';
+    } else if ($semester == 'S3') {
+      $sem = 'S4';
+    } else if ($semester == 'S4') {
+      $sem = 'S5';
+    } else if ($semester == 'S5') {
+      $sem = 'S6';
+    } else if ($semester == 'S6') {
+      $sem = 'S7';
+    } else if ($semester == 'S7') {
+      $sem = 'S8';
+    }
+    $this->db->set('semester', $sem);
+    $this->db->where('std_id', $id);
+    $this->db->update('stdreg');
+  }
+
   public function hod_status()
   {
     $reg_id = $_REQUEST['reg_id'];
     $std_id = $_REQUEST['std_id'];
     $sem = $_REQUEST['sem'];
-
-
+    
     $data = array(
       'semester' => $sem
     );

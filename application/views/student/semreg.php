@@ -1,4 +1,4 @@
-<?php $this->load->view('student/header') ?>
+<?php $this->load->view('student/header') ;?>
 
 <body>
   <!-- banner -->
@@ -140,8 +140,7 @@
               } else if ($semester == 'S2') {
 
                 $sem = 'S3';
-              }
- else if ($semester == 'S0') {
+              } else if ($semester == 'S0') {
 
                 $sem = 'S1';
               } else if ($semester == 'S3') {
@@ -196,7 +195,9 @@
                     <th>Semester</th>
                     <?php if ($status->hod_status == "1") { ?>
                       <th>Download</th>
-                    <?php }else{ echo"<th>Status</th>";} ?>
+                    <?php } else {
+                      echo "<th>Status</th>";
+                    } ?>
                   </tr>
                 </thead>
                 <tbody>

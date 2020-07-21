@@ -44,7 +44,7 @@ class Student_model extends CI_Model
 
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->row();
     }
   }
 
@@ -168,7 +168,7 @@ class Student_model extends CI_Model
     return $query;
   }
 
-
+  
 
   public function regcourse($std_id)
   {
