@@ -103,25 +103,25 @@ class Hod_model extends CI_Model
   }
 
 
-  public function updatesem($id, $semester)
+  public function updatesem($id, $sem)
   {
-    if ($semester == 'S1') {
+    if ($sem == 'S1') {
       $sem = 'S2';
-    } else if ($semester == 'S2') {
+    } else if ($sem == 'S2') {
 
       $sem = 'S3';
-    } else if ($semester == 'S0') {
+    } else if ($sem == 'S0') {
 
       $sem = 'S1';
-    } else if ($semester == 'S3') {
+    } else if ($sem == 'S3') {
       $sem = 'S4';
-    } else if ($semester == 'S4') {
+    } else if ($sem == 'S4') {
       $sem = 'S5';
-    } else if ($semester == 'S5') {
+    } else if ($sem == 'S5') {
       $sem = 'S6';
-    } else if ($semester == 'S6') {
+    } else if ($sem == 'S6') {
       $sem = 'S7';
-    } else if ($semester == 'S7') {
+    } else if ($sem == 'S7') {
       $sem = 'S8';
     }
     $this->db->set('semester', $sem);
@@ -134,7 +134,7 @@ class Hod_model extends CI_Model
     $reg_id = $_REQUEST['reg_id'];
     $std_id = $_REQUEST['std_id'];
     $sem = $_REQUEST['sem'];
-    
+
     $data = array(
       'semester' => $sem
     );
