@@ -24,6 +24,8 @@
             </ul>
           </li>
           <li><a href="<?php echo base_url('student/logoutstd'); ?>" class="btn w3ls-hover"><span class="text-right">LogOut</span></a></li>
+
+          
       </ul>
 
       <div class="clearfix"> </div>

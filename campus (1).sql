@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2020 at 03:11 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Jul 21, 2020 at 09:32 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -86,7 +86,7 @@ INSERT INTO `course` (`course_id`, `semester`, `branch`, `code`, `course_name`, 
 (33, 'S3', 'CSE', 'CS203', 'SWITCHING THEORY AND LOGIC DESIGN', 'C', 4),
 (34, 'S3', 'CSE', 'CS205', 'DATA STRUCTURES', 'D', 4),
 (35, 'S3', 'CSE', 'CS207', 'ELECTRONIC DEVICES AND CIRCUITS', 'E', 3),
-(36, 'S3', 'CSE', 'LIFE SKILLS', 'HS210', 'F', 3),
+(36, 'S3', 'CSE', 'HS210', 'LIFE SKILLS', 'F', 3),
 (37, 'S4', 'CSE', 'HS210', 'LIFE SKILLS', 'F', 3),
 (38, 'S3', 'CSE', 'HS200', 'BUSINESS ECONOMICS', 'F', 3),
 (39, 'S4', 'CSE', 'HS200', 'BUSINESS ECONOMICS', 'F', 3),
@@ -170,16 +170,65 @@ CREATE TABLE `credits` (
   `fifth_sem` int(20) NOT NULL,
   `sixth_sem` int(20) NOT NULL,
   `seventh_sem` int(20) NOT NULL,
-  `eighth_sem` int(20) NOT NULL
+  `eighth_sem` int(20) NOT NULL,
+  `cgpa` decimal(10,0) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `credits`
 --
 
-INSERT INTO `credits` (`id`, `std_id`, `first_sem`, `sec_sem`, `third_sem`, `forth_sem`, `fifth_sem`, `sixth_sem`, `seventh_sem`, `eighth_sem`) VALUES
-(3, 17, 18, 16, 19, 15, 14, 15, 11, 10),
-(5, 79, 16, 15, 14, 16, 12, 14, 0, 0);
+INSERT INTO `credits` (`id`, `std_id`, `first_sem`, `sec_sem`, `third_sem`, `forth_sem`, `fifth_sem`, `sixth_sem`, `seventh_sem`, `eighth_sem`, `cgpa`) VALUES
+(1, 1, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(2, 2, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(3, 17, 18, 16, 19, 15, 14, 15, 11, 10, '0'),
+(4, 4, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(5, 5, 24, 23, 24, 23, 23, 20, 22, 0, '0'),
+(6, 64, 12, 23, 0, 0, 0, 0, 0, 0, '0'),
+(7, 7, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(8, 8, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(9, 9, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(10, 10, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(11, 11, 17, 20, 24, 23, 20, 20, 16, 0, '0'),
+(12, 12, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(13, 13, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(14, 14, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(15, 15, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(16, 16, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(18, 18, 24, 23, 18, 20, 20, 17, 16, 0, '0'),
+(20, 20, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(21, 82, 23, 34, 23, 23, 0, 0, 0, 0, '0'),
+(22, 85, 24, 24, 24, 24, 0, 0, 0, 0, '0'),
+(23, 23, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(24, 24, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(25, 25, 24, 23, 24, 23, 23, 20, 22, 0, '0'),
+(26, 26, 24, 23, 24, 23, 23, 20, 22, 0, '0'),
+(27, 27, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(28, 28, 24, 23, 24, 23, 17, 20, 19, 0, '0'),
+(29, 29, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(30, 30, 24, 23, 24, 20, 20, 16, 19, 0, '0'),
+(31, 31, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(32, 32, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(33, 33, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(34, 34, 24, 23, 24, 23, 23, 20, 19, 0, '0'),
+(35, 35, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(36, 36, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(37, 37, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(38, 38, 24, 23, 24, 23, 23, 23, 19, 0, '0'),
+(39, 39, 24, 23, 24, 23, 23, 23, 16, 0, '0'),
+(40, 40, 24, 23, 24, 23, 23, 23, 16, 0, '0'),
+(41, 41, 24, 23, 24, 23, 20, 20, 16, 0, '0'),
+(42, 42, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(43, 43, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(44, 44, 24, 23, 14, 20, 14, 16, 13, 0, '0'),
+(45, 45, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(46, 46, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(47, 47, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(48, 48, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(49, 49, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(50, 50, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(51, 51, 24, 23, 24, 23, 23, 23, 22, 0, '0'),
+(54, 77, 23, 23, 0, 0, 0, 0, 0, 0, '0');
 
 -- --------------------------------------------------------
 
@@ -199,16 +248,11 @@ CREATE TABLE `due_amount` (
 --
 
 INSERT INTO `due_amount` (`id`, `due_id`, `student_id`, `amount`) VALUES
-(1, '1', '1', '11'),
-(2, '1', '1', '1111'),
-(3, '1', '1', '0'),
-(4, '1', '1', '0'),
+(1, '1', '1', '10'),
 (5, '1', '2', '0'),
-(6, '1', '1', '2000'),
-(7, '1', '2', '0'),
-(8, '1', '1', '20002'),
 (9, '2', '79', '250'),
-(10, '1', '79', '100');
+(10, '1', '77', '0'),
+(12, '1', '3', '0');
 
 -- --------------------------------------------------------
 
@@ -298,6 +342,38 @@ INSERT INTO `hod` (`hod_id`, `department`, `hod_name`, `user_id`, `password`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `semsubjects`
+--
+
+CREATE TABLE `semsubjects` (
+  `stud_id` int(11) NOT NULL,
+  `subb_id` int(20) NOT NULL,
+  `sub1` varchar(20) NOT NULL,
+  `sub2` varchar(20) NOT NULL,
+  `sub3` varchar(20) NOT NULL,
+  `sub4` varchar(20) NOT NULL,
+  `sub5` varchar(20) NOT NULL,
+  `sub6` varchar(20) NOT NULL,
+  `sub7` varchar(20) NOT NULL,
+  `sub8` varchar(20) NOT NULL,
+  `sub9` varchar(20) NOT NULL,
+  `sub10` varchar(20) NOT NULL,
+  `sem` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `semsubjects`
+--
+
+INSERT INTO `semsubjects` (`stud_id`, `subb_id`, `sub1`, `sub2`, `sub3`, `sub4`, `sub5`, `sub6`, `sub7`, `sub8`, `sub9`, `sub10`, `sem`) VALUES
+(82, 6, '49', '50', '54', '55', '58', '59', '', '', '', '', 'S5'),
+(82, 7, '49', '50', '51', '54', '55', '56', '', '', '', '', 'S5'),
+(85, 8, '49', '54', '58', '', '', '', '', '', '', '', 'S5'),
+(77, 9, '31', '32', '33', '34', '35', '38', '40', '41', '', '', 'S3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sem_display_date`
 --
 
@@ -315,7 +391,9 @@ CREATE TABLE `sem_display_date` (
 INSERT INTO `sem_display_date` (`id`, `date`, `end_date`, `staff_id`) VALUES
 (16, '2020-07-16', '2020-07-30', '8'),
 (17, '2020-07-16', '2020-07-30', '8'),
-(18, '2020-07-20', '2020-07-25', '8');
+(18, '2020-07-20', '2020-07-11', '8'),
+(19, '2020-07-16', '2020-07-27', '8'),
+(20, '2020-07-16', '2020-07-29', '17');
 
 -- --------------------------------------------------------
 
@@ -326,7 +404,7 @@ INSERT INTO `sem_display_date` (`id`, `date`, `end_date`, `staff_id`) VALUES
 CREATE TABLE `sem_reg` (
   `sem_reg_id` int(10) NOT NULL,
   `std_id` int(10) NOT NULL,
-  `course_id` int(10) NOT NULL,
+  `course_id` varchar(100) NOT NULL,
   `hod_status` varchar(10) NOT NULL DEFAULT '0',
   `status` varchar(10) NOT NULL DEFAULT 'pending',
   `advisor_id` int(10) NOT NULL
@@ -337,25 +415,8 @@ CREATE TABLE `sem_reg` (
 --
 
 INSERT INTO `sem_reg` (`sem_reg_id`, `std_id`, `course_id`, `hod_status`, `status`, `advisor_id`) VALUES
-(3, 17, 11, '0', '', 0),
-(4, 17, 12, '0', '', 0),
-(5, 17, 13, '0', '', 0),
-(6, 17, 13, '0', '', 0),
-(7, 17, 11, '0', '', 0),
-(8, 17, 12, '0', '', 0),
-(9, 17, 13, '0', '', 0),
-(10, 17, 12, '0', '', 0),
-(11, 17, 12, '0', '', 0),
-(12, 17, 13, '0', '', 0),
-(13, 17, 11, '0', '', 0),
-(14, 17, 13, '0', 'pending', 0),
-(15, 17, 13, 'pending', 'pending', 9),
-(16, 17, 13, '0', 'pending', 9),
-(17, 17, 12, '0', 'pending', 8),
-(18, 17, 13, '0', 'pending', 8),
-(19, 17, 11, '0', 'pending', 8),
-(20, 17, 12, '0', 'pending', 8),
-(21, 17, 13, '0', 'pending', 8);
+(10, 82, 'S5', '0', 'approved', 17),
+(11, 85, 'S5', '0', 'approved', 17);
 
 -- --------------------------------------------------------
 
@@ -371,7 +432,7 @@ CREATE TABLE `staff` (
   `advisor` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `status` int(10) NOT NULL DEFAULT '0'
+  `status` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -417,15 +478,15 @@ CREATE TABLE `stdpersonal` (
 --
 
 INSERT INTO `stdpersonal` (`std2_id`, `std_id`, `phone`, `address`, `email`, `category`, `fath_moth`, `occupationfath_moth`, `phnofath_moth`, `emailfath_moth`, `lgname`, `lgrelation`, `lgoccupation`, `lgphone`, `admission_no`) VALUES
-(64, 0, '', '', '', '', '', '', '', '', '', '', '', '', '7323'),
+(64, 77, '8767563456', 'akshsshs sbshshsh', 'akshaya@gmail.com', 'wrer', 'rweter', 'reyreyr', '9876543211', 'akshayarenjith2017@gmail.com', 'reryer', 'reyreyr', 'dgdfgdf', '9876543210', '7323'),
 (65, 0, '', '', '', '', '', '', '', '', '', '', '', '', '7456'),
 (66, 79, '123333', 'qwq', 'anoop@gmail.com', 'aaa', 'aaa', 'aaa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', '7425'),
 (67, 0, '', '', '', '', '', '', '', '', '', '', '', '', '7509'),
 (68, 0, '', '', '', '', '', '', '', '', '', '', '', '', '7943'),
-(69, 0, '', '', '', '', '', '', '', '', '', '', '', '', '8252'),
+(69, 82, '8767563456', 'akshsshs sbshshsh', 'akshaya@gmail.com', 'wrer', 'rweter', 'reyreyr', '9876543211', 'akshaya@gmail.com', 'reryer', 'reyreyr', 'dgdfgdf', '7593044784', '8252'),
 (70, 0, '', '', '', '', '', '', '', '', '', '', '', '', '8365'),
 (71, 0, '', '', '', '', '', '', '', '', '', '', '', '', '8907'),
-(72, 0, '', '', '', '', '', '', '', '', '', '', '', '', '8001'),
+(72, 85, '9876543210', 'akshsshs sbshshsh', 'akshaya@gmail.com', 'wrer', 'rweter', 'reyreyr', '9876543211', 'akshaya@gmail.com', 'reryer', 'reyreyr', 'dgdfgdf', '9876543210', '8001'),
 (73, 0, '', '', '', '', '', '', '', '', '', '', '', '', '8765'),
 (74, 0, '', '', '', '', '', '', '', '', '', '', '', '', '9621'),
 (75, 0, '', '', '', '', '', '', '', '', '', '', '', '', '9567'),
@@ -453,7 +514,7 @@ CREATE TABLE `stdreg` (
   `std_credits` varchar(10) NOT NULL,
   `password` varchar(100) NOT NULL,
   `staff_id` int(10) NOT NULL,
-  `aprove` int(5) NOT NULL DEFAULT '0',
+  `aprove` int(5) NOT NULL DEFAULT 0,
   `due` varchar(50) NOT NULL,
   `due_amount` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -514,15 +575,15 @@ INSERT INTO `stdreg` (`std_id`, `std_name`, `dob`, `admission_no`, `Course`, `br
 (49, 'ANUSHA RAJ', '1996-12-23', '6994', 'B.Tech', 'CSE', '2017-08-01', '1996-07-31', 'LIDK16CS065', 'S8', '', 'Anusha2123', 15, 0, '', ''),
 (50, 'JISHA RAJ', '1996-06-14', '6948', 'B.Tech', 'CSE', '2017-08-01', '2020-07-31', 'LIDK16CS066', 'S8', '', 'Jisha@123', 15, 0, '', ''),
 (51, 'NEHA THADEUS', '1996-12-25', '6953', 'B.Tech', 'CSE', '2017-08-01', '2020-07-31', 'LIDK16CS067', 'S8', '', 'Neha@123', 15, 0, '', ''),
-(77, 'APARNA K P', '2001-01-01', '7323', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS001', 'S2', '', 'Aparna@123', 8, 0, '', ''),
+(77, 'APARNA K P', '2001-01-01', '7323', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS001', 'S3', '46', 'Aparna@123', 8, 0, '', ''),
 (78, 'CHRISTY JOSEPH', '2001-02-02', '7456', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS002', 'S2', '', 'Christy@123', 8, 0, '', ''),
 (79, 'DEVIKA K P', '2001-03-03', '7425', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS003', 'S2', '', 'Deviak@123', 8, 0, '', ''),
 (80, 'NEVIN PAUL', '2001-04-14', '7509', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS004', 'S2', '', 'Nevin123', 8, 0, '', ''),
 (81, 'SARATH K P', '2001-03-05', '7943', 'B.Tech', 'CSE', '2019-08-01', '2023-07-31', 'IDK19CS005', 'S2', '', 'Srarh@123', 8, 0, '', ''),
-(82, 'AKASH KRISHNA', '2000-09-11', '8252', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS001', 'S4', '', 'Akash@123', 17, 0, '', ''),
+(82, 'AKASH KRISHNA', '2000-09-11', '8252', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS001', 'S5', '103', 'Akash@123', 17, 0, '', ''),
 (83, 'CATHERINE MARIYA', '2000-12-22', '8365', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS002', 'S4', '', 'Cathrine123', 17, 0, '', ''),
 (84, 'MANEESHA M', '2000-10-30', '8907', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS003', 'S4', '', 'Maneesh123', 17, 0, '', ''),
-(85, 'PRAVEEN T K', '2000-08-04', '8001', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS004', 'S4', '', 'Pravwen123', 17, 0, '', ''),
+(85, 'PRAVEEN T K', '2000-08-04', '8001', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS004', 'S4', '96', 'Pravwen123', 17, 0, '', ''),
 (86, 'RESHMA P R', '2000-07-05', '8765', 'B.Tech', 'CSE', '2018-08-02', '2022-07-31', 'IDK18CS005', 'S4', '', 'Reshma123', 17, 0, '', ''),
 (87, 'ABHIRAMYA A A', '1997-01-01', '9621', 'B.Tech', 'CSE', '2017-08-01', '2021-07-31', 'IDK17CS001', 'S6', '', 'Abhi@123', 19, 0, '', ''),
 (88, 'BIBIN K B', '1997-02-02', '9567', 'B.Tech', 'CSE', '2017-08-01', '2021-07-31', 'IDK17CS002', 'S6', '', 'Bibin@123', 19, 0, '', ''),
@@ -578,6 +639,12 @@ ALTER TABLE `hod`
   ADD PRIMARY KEY (`hod_id`);
 
 --
+-- Indexes for table `semsubjects`
+--
+ALTER TABLE `semsubjects`
+  ADD PRIMARY KEY (`subb_id`);
+
+--
 -- Indexes for table `sem_display_date`
 --
 ALTER TABLE `sem_display_date`
@@ -629,13 +696,13 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `credits`
 --
 ALTER TABLE `credits`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `due_amount`
 --
 ALTER TABLE `due_amount`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `due_dept`
@@ -656,16 +723,22 @@ ALTER TABLE `hod`
   MODIFY `hod_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `semsubjects`
+--
+ALTER TABLE `semsubjects`
+  MODIFY `subb_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `sem_display_date`
 --
 ALTER TABLE `sem_display_date`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `sem_reg`
 --
 ALTER TABLE `sem_reg`
-  MODIFY `sem_reg_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `sem_reg_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `staff`

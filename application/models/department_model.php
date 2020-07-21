@@ -65,8 +65,7 @@ class Department_model extends CI_Model
   public function getstudents($branch, $semester)
   {
     $this->db->select('s.std_id,s.std_name,s.admission_no,s.branch,s.semester,s.universityregno,s.std_credits');
-    $this->db->from('stdreg AS s');
-    //$this->db->join('course as c', 'c.semester = s.semester');
+    $this->db->from('stdreg AS s, course as c');
     $this->db->where('s.semester=', $semester);
     $this->db->where('s.branch=', $branch);
 
@@ -101,7 +100,6 @@ class Department_model extends CI_Model
       return $query->result();
     }
   }
-
   public function getmydues($id, $due)
   {
     $this->db->from('due_amount');

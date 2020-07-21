@@ -1,95 +1,66 @@
-<?php $this->load->view('student/header');
-error_reporting(0); ?>
+<?php $this->load->view('student/header'); 
+error_reporting(0);?>
 <style media="screen">
-	.bounce {
-		height: 40px;
-		overflow: hidden;
-		position: relative;
-		background: #fefefe;
-		color: #333;
-		border: 1px solid #4a4a4a;
-	}
+.bounce {
+					height: 40px;
+					overflow: hidden;
+					position: relative;
+					background: #fefefe;
+					color: #333;
+					border: 1px solid #4a4a4a;
+			}
+marquee{
+	margin-top: 10px;
+}
 
-	marquee {
-		margin-top: 10px;
-	}
 </style>
-
 <body>
-	<!-- banner -->
+<!-- banner -->
 	<div class="banner">
-		<div class="header agileinfo-header">
-			<!-- header -->
+		<div class="header agileinfo-header"><!-- header -->
 			<?php $this->load->view('student/navbar'); ?>
 		</div><!-- //header -->
 
 		<?php
 
-		$creditscheck1 = $credits->first_sem + $credits->sec_sem;
-		$creditscheck2 = $credits->first_sem + $credits->sec_sem + $credits->third_sem + $credits->forth_sem + 123;
-		$semester = $stddet->semester;
-		$sem_date = $sem_date;
-		$sem_date = 'exists';
-		if ($sem_date == 'exists') {
-		?>
+			$creditscheck1 = $credits->first_sem + $credits->sec_sem;
+			$creditscheck2 = $credits->first_sem + $credits->sec_sem + $credits->third_sem + $credits->forth_sem+123;
+			  $semester = $stddet->semester;
+			
+           	if($sem_date=='exists')
+			{
+				$id=$stddet->std_id;
+				$query=$this->db->query("select * from due_amount where student_id=$id and amount>0");
+			      if ($query->num_rows()>0){
 
-			<div class="bounce text-center">
-				<?php if ($due != null) { ?>
-					<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/myDues"); ?>" class="text-danger btn btn-success">
-						View Dues
-					</a>
-				<?php } ?>
-				<?php if ($semester == "S4") : ?>
-					<?php if ($creditscheck1 >= 26) : ?>
-						<!--<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">-->
-						<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
-							Fifth Semester Registration Opens
-						</a>
-						(You Are Only Eligible when you have the Required Credits)
-						<!--</marquee>-->
-					<?php else : ?>
-						<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-							<p class="text-danger">(You Are Not Eligible For Fifth Semester Registration)</p>
-						</marquee>
-					<?php endif; ?>
-				<?php endif; ?>
 
-				<?php if ($semester == "S6") : ?>
-					<?php if ($creditscheck2 >= 52) : ?>
+			      		
+			        	 ?>
+					<div class="row" style="color: red;text-align: center;margin-top: 2%">
+									<marquee><h3> Sem registration(Dues pending)</h3></marquee>
+								</div>
+					<?php
+			       
+			      }
+			      else
+			      {
+			      	?>
+			      	<div class="row" style="color: red;text-align: center;margin-top: 2%">
+									<markquee><h3> Sem registration<a href="<?php echo base_url('student/semreg')?>"> CLick here</a></h3></markquee>
+								</div>
+			      	<?php
+			      }
+	
+		 	?>
 
-						<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
-							Seventh Semester Registration Opens
-							<!-- <?php echo $creditscheck1 . " " . $semester; ?> -->
-						</a>
-						(You Are Only Eligible when you have the Required Credits)
 
-					<?php else : ?>
-						<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-							(You Are Not Eligible For Seventh Semester Registration)
-						</marquee>
-					<?php endif; ?>
-				<?php endif; ?>
 
-				<?php if ($semester == "S1" || $semester == "S2" || $semester == "S3" || $semester == "S5" || $semester == "S7") : ?>
-					<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
-						Semester Registration
-						<!-- <?php echo $creditscheck1 . " " . $semester; ?> -->
-					</a>
-					(You Are Only Eligible when you have the Required Credits)
-				<?php endif; ?>
 
-				<?php if ($semester == "S8") : ?>
-					<a style="margin-top:2px;margin-left:2px;" href="<?php echo base_url("student/semregistration"); ?>" class="text-danger btn btn-success">
-						Good Luck
-						<!-- <?php echo $creditscheck1 . " " . $semester; ?> -->
-					</a>
-				<?php endif; ?>
-
-			</div>
 
 		<?php
-		}
-		?>
+			}
+		
+			?>
 		<!-- banner-text -->
 		<div class="banner-text">
 			<div class="container">
@@ -124,4 +95,4 @@ error_reporting(0); ?>
 		<!-- //banner-text -->
 	</div>
 
-	<?php $this->load->view('student/footer'); ?>
+<?php $this->load->view('student/footer'); ?>
