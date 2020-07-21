@@ -39,12 +39,12 @@ class Student_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('stdreg');
-    $this->db->join('staff', 'stdreg.staff_id = staff.s_id');
+
     $this->db->where('std_id', $std_id);
 
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
-      return $query->row();
+      return $query->result();
     }
   }
 
