@@ -36,8 +36,7 @@
 									<li class="agileits-main"><input value="<?php echo $post->dateofleaving; ?>" type="text"  readonly></li>
 									<li class="text">University Register No  :  </li>
 									<li class="agileits-main"><input value="<?php echo $post->universityregno; ?>" type="text"  readonly></li>
-									<li class="text">Faculty Name:  </li>
-									<li class="agileits-main"><input value="<?php echo $post->name; ?>" type="text"  readonly></li>
+									
 								</ul>
 							</div>
 							<div class="clearfix"></div>
