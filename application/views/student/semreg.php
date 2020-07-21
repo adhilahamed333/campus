@@ -140,6 +140,10 @@
               } else if ($semester == 'S2') {
 
                 $sem = 'S3';
+              }
+ else if ($semester == 'S0') {
+
+                $sem = 'S1';
               } else if ($semester == 'S3') {
                 $sem = 'S4';
               } else if ($semester == 'S4') {
